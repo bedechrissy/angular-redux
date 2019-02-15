@@ -1,0 +1,3 @@
+export const ACTION_ADD_POST = "ADD_POST";
+export const ACTION_LOAD_POSTS = "LOAD_POSTS";
+export const ACTION_CLEAR_POSTS = "CLEAR_POSTS";

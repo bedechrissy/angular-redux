@@ -1,0 +1,26 @@
+
+<div class="postList">
+    <div class="menu">
+        <button mat-flat-button color="basic" (click)="addPost()">Add a Post</button>
+        <button mat-flat-button color="basic" (click)="fetchPosts()">Fetch some sample Posts</button>
+
+        <button mat-flat-button color="basic" (click)="loadPosts()" disabled="{{postsDisplayed || !postsInState}}">Load Posts into View</button>
+        <button mat-flat-button color="basic" (click)="hidePosts()" disabled="{{!postsDisplayed}}">Hide Posts from View</button>
+
+        <button mat-flat-button color="warn" (click)="clearPosts()">Clear Posts</button>
+    </div>
+    
+    <div class="content">
+        <ng-container *ngIf="postsDisplayed">
+            <app-post *ngFor="let post of posts" [post]=post></app-post>
+        </ng-container>
+        <ng-container *ngIf="!postsDisplayed">
+            <span *ngIf="!postsDisplayed && !postsInState">
+                No posts are loaded into state or view, add a post or fetch some from the Api.
+            </span>
+            <span *ngIf="!postsDisplayed && postsInState">
+                Post are loaded into state but not in view, click 'Load Posts into view' to show the posts.
+            </span>
+        </ng-container>
+    </div>
+</div>

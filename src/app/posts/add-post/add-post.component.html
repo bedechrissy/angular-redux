@@ -1,0 +1,14 @@
+<form class="add-post" [formGroup]="addPostForm" (ngSubmit)="addPost()">
+    <mat-form-field>
+        <input matInput placeholder="title" formControlName="title">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <textarea matInput placeholder="body" formControlName="body"></textarea>
+    </mat-form-field>
+    
+    <div class="action">
+        <button mat-flat-button color="primary"> Back</button>
+        <button mat-flat-button color="accent" mat-flat-button type="submit" [disabled]="!addPostForm.valid"> Add</button>
+    </div>
+</form>
